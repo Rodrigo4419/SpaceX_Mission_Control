@@ -45,17 +45,10 @@ export default async function Dashboard() {
 
   return (
     <>
-      <header className="max-w-425 m-auto">
-        <div className="flex gap-x-1.5 items-center text-sm text-zinc-400 font-medium mb-5">
-          <span>Dashboard</span>
-          <ChevronRightIcon height="1rem" width="1rem" />
-          <span>Home</span>
-        </div>
-        <h2 className="font-bold">Overview</h2>
-      </header>
-      <section className="max-w-425 m-auto">
-        <div className="flex gap-4 h-32 items-center mt-6">
-          <div className="relative h-full p-4 grow w-0 border rounded-lg border-zinc-800">
+      <section className="max-w-425 mt-24 m-auto sm:mt-auto">
+        <div className="flex flex-col gap-4 h-fit items-center mt-6 sm:flex-row sm:h-32">
+
+          <div className="relative h-full p-4 grow w-full border rounded-lg border-zinc-800 sm:w-0">
             <h2 className="flex gap-2 text-sm font-semibold text-zinc-300">
               <RocketIcon height="1rem" width="1rem" color="#05df72" />
               Successful Launches
@@ -65,11 +58,11 @@ export default async function Dashboard() {
             </p>
             <p className="text-xs text-zinc-500">{allLaunches.ok ? 'Since 2006' : allLaunches.error.message}</p>
             {allLaunches.ok && <span className="absolute right-4 top-1/2 translate-y-[-50%] pt-0.5 pb-0.5 pl-4 pr-4 rounded-3xl text-xs font-bold border border-green-900 bg-green-500/20 text-green-500">
-              {((successful / (successful + failed)) * 100).toFixed(2)}%
+              {((successful / (successful + failed)) * 100).toFixed(1)}%
             </span>}
           </div>
 
-          <div className="relative h-full p-4 grow w-0 border rounded-lg border-zinc-800">
+          <div className="relative h-full p-4 grow w-full border rounded-lg border-zinc-800 sm:w-0">
             <h2 className="flex gap-2 text-sm font-semibold text-zinc-300">
               <CrashIcon height="1rem" width="1rem" color="#fb2c36" />
               Unsuccessful Launches
@@ -79,11 +72,11 @@ export default async function Dashboard() {
             </p>
             <p className="text-xs text-zinc-500">{allLaunches.ok ? 'Since 2006' : allLaunches.error.message}</p>
             {allLaunches.ok && <span className="absolute right-4 top-1/2 translate-y-[-50%] pt-0.5 pb-0.5 pl-4 pr-4 rounded-3xl text-xs font-bold border border-red-900 bg-red-500/20 text-red-300">
-              {((failed / (successful + failed)) * 100).toFixed(2)}%
+              {((failed / (successful + failed)) * 100).toFixed(1)}%
             </span>}
           </div>
 
-          <div className="relative h-full p-4 grow w-0 border rounded-lg border-zinc-800">
+          <div className="relative h-full p-4 grow w-full border rounded-lg border-zinc-800 sm:w-0">
             <h2 className="flex gap-2 text-sm font-semibold text-zinc-300">
               <RocketIcon height="1rem" width="1rem" color="#2b7fff" />
               Active Rockets
@@ -97,7 +90,7 @@ export default async function Dashboard() {
             </span>}
           </div>
 
-          <div className="relative h-full p-4 w-[12%] border rounded-lg border-zinc-800 bg-zinc-800/20 grow 2xl:w-0">
+          <div className="relative h-full p-4 w-full border rounded-lg border-zinc-800 bg-zinc-800/20 grow 2xl:w-0 sm:w-[12%]">
             <h2 className="flex gap-2 items-center text-sm font-semibold text-zinc-50 mb-2">
               <LaunchPadIcon width="1rem" height="1rem" />
               Explore all the data
@@ -114,8 +107,10 @@ export default async function Dashboard() {
             </Link>
           </div>
         </div>
-        <div className="flex gap-4 items-center mt-4 mb-4">
-          <div className="relative p-4 grow w-0 border rounded-lg border-zinc-800">
+
+        <div className="flex flex-col gap-4 items-center mt-4 mb-4 sm:flex-row">
+
+          <div className="relative p-4 grow w-full border rounded-lg border-zinc-800 sm:w-0">
             <h2 className="flex gap-2 text-sm font-semibold text-zinc-300">
               Launches
             </h2>
@@ -134,7 +129,7 @@ export default async function Dashboard() {
               dataKeys={DATA_KEYS}
             />
           </div>
-          <div className="relative p-4 grow w-0 border rounded-lg border-zinc-800">
+          <div className="relative p-4 grow w-full border rounded-lg border-zinc-800 sm:w-0">
             <h2 className="flex gap-2 text-sm font-semibold text-zinc-300">
               Succesful and unsuccessful launches
             </h2>

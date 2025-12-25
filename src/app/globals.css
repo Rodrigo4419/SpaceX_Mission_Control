@@ -10,6 +10,58 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter-sans);
   --font-mono: var(--font-geist-tight);
+  --animate-blur-text: blur 3000ms ease-in-out forwards;
+  --animate-slide-in: slide 500ms ease-in-out forwards;
+  --animate-pop-up:pop 500ms ease-in-out forwards;
+  --animate-slide-drawer:slidein 500ms ease-in-out forwards;
+
+  @keyframes blur {
+    0% {
+      opacity: 0;
+      filter:blur(10px);
+      letter-spacing: 5rem;
+    }
+    100% {
+      opacity: 1;
+      filter:blur(0px);
+      letter-spacing: 0rem;
+    }
+  }
+
+   @keyframes slide {
+    0% {
+      opacity: 0;
+      transform:translateY(3rem);
+    }
+    100% {
+      opacity: 1;
+      transform:translateY(0)
+    }
+  }
+
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      scale:0%;
+    }
+    80% {
+      opacity: 1;
+      scale:110%;
+    }
+    100% {
+      opacity: 1;
+      scale:100%;
+    }
+  }
+
+  @keyframes slidein {
+    0% {
+      transform:translatex(-100%)
+    }
+    100% {
+      transform:translatex(0%)
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

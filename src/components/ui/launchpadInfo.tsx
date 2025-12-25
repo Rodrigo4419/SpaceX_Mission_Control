@@ -2,9 +2,9 @@ import { ImageCarousel } from "@/components/ui";
 import { LaunchpadDocs } from "@/types";
 
 const activeClass =
-  "pt-0.5 pb-0.5 pl-1.5 pr-1.5 rounded-3xl text-xs font-bold border border-green-900 bg-green-500/20 text-green-500 ml-auto";
+  "hidden pt-0.5 pb-0.5 pl-1.5 pr-1.5 rounded-3xl text-xs font-bold border border-green-900 bg-green-500/20 text-green-500 ml-auto sm:block";
 const inactiveClass =
-  "pt-0.5 pb-0.5 pl-1.5 pr-1.5 rounded-3xl text-xs font-bold border border-red-900 bg-red-500/20 text-red-300 ml-auto";
+  "hidden pt-0.5 pb-0.5 pl-1.5 pr-1.5 rounded-3xl text-xs font-bold border border-red-900 bg-red-500/20 text-red-300 ml-auto sm:block";
 
 type TProps = {
   selected: LaunchpadDocs;
@@ -12,20 +12,18 @@ type TProps = {
 
 export default function LaunchpadInfo({ selected }: TProps) {
   return (
-    <>
-      <div className="hidden relative w-full h-[30%] mb-6 2xl:block">
-        <ImageCarousel
+      <div className="p-8 pt-4 w-full grow flex flex-col gap-4 sm:flex-row">
+        <div className="w-full h-1/2 sm:w-1/2 sm:h-full">
+          <ImageCarousel
           images={selected.images.large}
-          width="100%"
-          height="100%"
+          width={"100%"}
+          height={"100%"}
         />
-      </div>
-      <article>
-        <h2 className="text-lg font-semibold text-zinc-50">
-          {selected.full_name}
-        </h2>
-        <h4 className="flex items-center text-sm text-zinc-700 font-semibold mb-4">
-          {selected.region}
+        </div>
+        <article className="flex flex-col basis-1/2">
+          <h2 className="text-lg text-zinc-50 font-semibold max-w-full overflow-hidden whitespace-nowrap text-ellipsis sm:text-2xl">
+            {selected.name}
+          </h2>
           <span
             className={
               selected.status === "active" ? activeClass : inactiveClass
@@ -33,9 +31,13 @@ export default function LaunchpadInfo({ selected }: TProps) {
           >
             {selected.status === "active" ? "Active" : "Inactive"}
           </span>
-        </h4>
-        <p className="text-zinc-400">{selected.details}</p>
-      </article>
-    </>
+          <p className="text-sm text-zinc-700 font-semibold">
+            {selected.region}
+          </p>
+          <p className="mt-2 text-zinc-400 grow h-0 overflow-y-auto sm:mt-4">
+            {selected.details}
+          </p>
+        </article>
+      </div>
   );
 }

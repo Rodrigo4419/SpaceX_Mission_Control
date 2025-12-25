@@ -16,6 +16,10 @@ import WarningFilledIcon from "./warningFilledIcon";
 import CheckedFilledIcon from "./checkedFilledIcon";
 import ErrorFilledIcon from "./errorFilledIcon";
 import InfoIcon from "./InfoIcon";
+import FilterIcon from "./filterIcon";
+import LoadingLineIcon from "./loadingLineIcon";
+import MenuIcon from "./menuIcon";
+
 
 export {
     SpacexIcon,
@@ -35,5 +39,8 @@ export {
     WarningFilledIcon,
     CheckedFilledIcon,
     ErrorFilledIcon,
-    InfoIcon
+    InfoIcon,
+    FilterIcon,
+    LoadingLineIcon,
+    MenuIcon
 }

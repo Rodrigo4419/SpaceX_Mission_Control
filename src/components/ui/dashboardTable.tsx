@@ -23,8 +23,9 @@ export default function DashboardTable({ data }: TProps) {
         />
       </div>
 
-      <div className="flex flex-row gap-4 relative basis-sm 2xl:flex-col">
-        <div className="p-4 h-fit w-1/2 relative text-sm border rounded-lg border-zinc-800 2xl:w-full">
+      <div className="flex flex-col gap-4 relative basis-sm 2xl:flex-col sm:flex-row">
+
+        <div className="p-4 h-fit w-full relative text-sm border rounded-lg border-zinc-800 2xl:w-full sm:w-1/2">
           <img
             alt="rocket img"
             src={selected.launchpad.images.large[0]}
@@ -41,7 +42,7 @@ export default function DashboardTable({ data }: TProps) {
           </p>
         </div>
 
-        <div className="p-4 h-full w-1/2 relative text-sm border rounded-lg border-zinc-800 2xl:w-full 2xl:h-fit">
+        <div className="p-4 h-full w-full relative text-sm border rounded-lg border-zinc-800 2xl:w-full 2xl:h-fit sm:w-1/2">
           <h2 className="text-lg font-semibold text-zinc-300 mb-6">
             Launch Details
           </h2>

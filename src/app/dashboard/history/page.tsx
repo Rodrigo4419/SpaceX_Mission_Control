@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getPaginatedLaunches } from "@/lib/spacex/launches";
-import { Table, Modal, SnackBar } from "@/components/ui";
+import { Table, Modal, SnackBar, List } from "@/components/ui";
 import ModalBody from "./modalBody";
 import { ApiDocs, ApiResponse } from "@/types";
-import { ChevronRightIcon, LoadingIcon } from "@/components/svg";
+import {  LoadingIcon } from "@/components/svg";
 
 type TProps = {
   data: ApiResponse;
@@ -64,23 +64,22 @@ export default function History() {
       >
         {selected && <ModalBody selected={selected} />}
       </Modal>
-      <header className="w-full">
-        <div className="flex gap-x-1.5 items-center text-sm text-zinc-400 font-medium mb-5">
-          <span>Dashboard</span>
-          <ChevronRightIcon height="1rem" width="1rem" />
-          <span>History</span>
-        </div>
-        <h2 className="font-bold">SpaceX Launches</h2>
-      </header>
       {isLoading && (
         <div className="absolute top-1/2 left-1/2 translate-x-1/2 -translate-y-1/2 text-blue-500">
           <LoadingIcon height="5rem" width="5rem" />
         </div>
       )}
-      {tableData && (
-        <Table filters={true} data={tableData} setSelected={setSelected} />
-      )}
-      <SnackBar info={snackBar} updateInfo={setSnackbar}/>
+      <div className="hidden sm:block">
+        {tableData && (
+          <Table filters={true} data={tableData} setSelected={setSelected} />
+        )}
+      </div>
+      <div className="block mt-24 sm:hidden">
+        {tableData && (
+          <List data={tableData} setSelected={setSelected}/>
+        )}
+      </div>
+      <SnackBar info={snackBar} updateInfo={setSnackbar} />
     </>
   );
 }
