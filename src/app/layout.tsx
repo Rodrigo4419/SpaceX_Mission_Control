@@ -25,21 +25,22 @@ export const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://spacexmissioncontrol.vercel.app"),
   title: {
     default: "SpaceX Mission Control",
     template: "%s | SpaceX MC",
   },
   description: "Discover SpaceX launches and missions",
   openGraph: {
-    title: "SpaceX",
-    description: "Explore SpaceX launches",
+    title: "SpaceX Mision Control",
+    description: "Discover SpaceX launches and missions",
     siteName: "SpaceX Mission Control",
     images: [
       {
-        url: "backgrounds/meta-img.png",
+        url: "/images/backgrounds/meta-img.png",
         width: 1920,
         height: 1080,
-        alt: "SpaceX",
+        alt: "SpaceX Mission Control Home",
       },
     ],
     type: "website",
